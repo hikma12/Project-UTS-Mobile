@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -20,9 +21,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView textName;
+    private TextView textName, tv_saldo;
     private FirebaseUser firebaseUser;
-    private Button btnLogout;
+    private Button btnTopUp;
     private ImageView profile;
 
 
@@ -32,8 +33,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textName = findViewById(R.id.name);
-        btnLogout = findViewById(R.id.btn_logout);
+        btnTopUp = findViewById(R.id.btn_topup);
         profile = findViewById(R.id.iv_foto);
+        tv_saldo = findViewById(R.id.tv_saldo);
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
         if (firebaseUser.getDisplayName()!=null){
@@ -62,11 +64,23 @@ public class MainActivity extends AppCompatActivity {
         rvBuku.setLayoutManager(new LinearLayoutManager(this));
         AdapterBuku adapter = new AdapterBuku(DataBuku.books);
         rvBuku.setAdapter(adapter);
-        btnLogout.setOnClickListener(view -> {
-            FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-            finish();
+
+        String jumlahsaldo = getIntent().getStringExtra("extra_topup");
+        if (jumlahsaldo != null) {
+
+            tv_saldo.setText(jumlahsaldo);
+        }
+        btnTopUp.setOnClickListener(view -> {
+            String saldo = tv_saldo.getText().toString();
+            Intent intent = new Intent(MainActivity.this, TopUpActivity.class);
+            intent.putExtra("extra_saldo", saldo);
+            startActivity(intent);
         });
+
+
+
+
+
 
 
     }

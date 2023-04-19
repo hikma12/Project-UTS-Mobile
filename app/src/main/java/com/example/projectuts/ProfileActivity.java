@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ public class ProfileActivity extends AppCompatActivity {
     private ImageView foto;
     private String profileUri;
     private Uri uri;
+    private Button btnLogout;
     private FirebaseUser firebaseUser;
 
     @Override
@@ -33,6 +35,7 @@ public class ProfileActivity extends AppCompatActivity {
         email = findViewById(R.id.tv_email);
         foto = findViewById(R.id.iv_foto);
         back = findViewById(R.id.btn_back);
+        btnLogout = findViewById(R.id.btn_logout);
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
         nama.setText(firebaseUser.getDisplayName());
@@ -53,6 +56,12 @@ public class ProfileActivity extends AppCompatActivity {
         foto.setOnClickListener(view -> {
             Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             takeImage.launch(intent);
+        });
+
+        btnLogout.setOnClickListener(view -> {
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+            finish();
         });
     }
     ActivityResultLauncher<Intent> takeImage = registerForActivityResult(

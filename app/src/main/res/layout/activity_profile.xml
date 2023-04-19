@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileActivity"
-    android:orientation="vertical"
-    android:background="@color/black">
+    android:orientation="vertical">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -66,8 +65,18 @@
                 android:layout_centerHorizontal="true"/>
 
         </RelativeLayout>
+
     </FrameLayout>
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
+        android:text="Logout"
+        android:layout_alignParentBottom="true"/>
 
 
 
-</LinearLayout>
+</RelativeLayout>
