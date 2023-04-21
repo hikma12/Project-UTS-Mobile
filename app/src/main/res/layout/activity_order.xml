@@ -4,179 +4,235 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OrderActivity"
-    >
+    android:background="#DADADA"
+    tools:context=".OrderActivity">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <LinearLayout
-        android:id="@+id/header"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/teal_200"
-        android:layout_marginBottom="160dp">
-        <ImageButton
-            android:id="@+id/btn_back"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/baseline_arrow_back_24"
-            android:backgroundTint="#00000000"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:textSize="15sp"
-            android:text="Order"
-            android:gravity="center_vertical"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp"
-        android:layout_below="@id/header"
-        android:layout_centerInParent="true"
-        android:background="#BFEA8582">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Order"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:textColor="@color/black" />
-
-        <com.google.android.material.card.MaterialCardView
+        <LinearLayout
+            android:id="@+id/header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="12dp"
-            android:backgroundTint="#EA8582">
-            <RelativeLayout
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/header"
+            android:orientation="horizontal"
+            android:padding="7dp">
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:backgroundTint="#00000000"
+                android:src="@drawable/baseline_arrow_back_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="7dp"
+                android:gravity="center_vertical"
+                android:text="Order"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/header"
+            android:layout_centerInParent="true"
+            android:layout_marginHorizontal="20dp"
+            android:background="#6699CF"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardFoto"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    app:cardCornerRadius="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    app:cardBackgroundColor="@color/white">
-                    <ImageView
-                        android:id="@+id/foto"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:clickable="true"
-                        android:scaleType="centerCrop"/>
-                </androidx.cardview.widget.CardView>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/baseline_add_shopping_cart_24" />
 
                 <TextView
-                    android:id="@+id/Rp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rp."
-                    android:layout_marginTop="3dp"
-                    android:layout_below="@id/cardFoto"
-                    android:textStyle="bold"
-                    android:textSize="12sp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Order"
+                    android:layout_marginLeft="5dp"
                     android:textColor="@color/white"
-                    android:layout_marginLeft="16dp"
-                    />
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
                 <TextView
-                    android:id="@+id/tv_harga"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/cardFoto"
-                    android:text="22000"
-                    android:layout_marginTop="3dp"
-                    android:layout_toRightOf="@id/Rp"
-                    android:textStyle="bold"
-                    android:textSize="12sp"
-                    android:textColor="@color/white"
-                    />
-                <TextView
-                    android:id="@+id/namaBuku"
+                    android:id="@+id/tv_Rp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_toRightOf="@id/cardFoto"
-                    android:background="#00000000"
-                    android:text="nama buku" />
+                    android:gravity="end"
+                    android:text=" Rp. "
+                    android:textColor="@color/white" />
+
                 <TextView
-                    android:id="@+id/jumlah"
+                    android:id="@+id/saldo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_toRightOf="@id/cardFoto"
-                    android:layout_below="@id/namaBuku"
-                    android:background="#00000000"
-                    android:text="Jumlah" />
+                    android:gravity="end"
+                    android:layout_marginEnd="15dp"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#C185B2E1"
+                app:cardCornerRadius="7dp">
+
                 <RelativeLayout
-                    android:layout_width="150dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_toRightOf="@id/cardFoto"
-                    android:layout_below="@id/jumlah">
+                    android:orientation="horizontal">
 
-                    <Button
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
-                        android:onClick="kurang"
-                        android:text="-"
-                        android:textSize="25sp"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentLeft="true"/>
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardFoto"
+                        android:layout_width="120dp"
+                        android:layout_height="135dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="3dp">
+
+                        <ImageView
+                            android:id="@+id/foto"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clickable="true"
+                            android:scaleType="centerCrop" />
+                    </androidx.cardview.widget.CardView>
 
                     <TextView
-                        android:id="@+id/tv_jumlah"
+                        android:id="@+id/Rp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:text="0"
-                        android:textSize="25sp" />
-                    <Button
-                        android:layout_width="50dp"
+                        android:layout_below="@id/cardFoto"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Rp."
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_harga"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:onClick="tambah"
-                        android:text="+"
-                        android:textSize="25sp"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"/>
+                        android:layout_below="@id/cardFoto"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_toRightOf="@id/Rp"
+                        android:text="22000"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/namaBuku"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_toRightOf="@id/cardFoto"
+                        android:text="nama buku"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/jumlah"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/namaBuku"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_toRightOf="@id/cardFoto"
+                        android:text="Jumlah"
+                        android:textColor="@color/white" />
+
+                    <RelativeLayout
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/jumlah"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_toRightOf="@id/cardFoto">
+
+                        <Button
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:backgroundTint="@color/white"
+                            android:onClick="kurang"
+                            android:text="-"
+                            android:textColor="#499CC3"
+                            android:textSize="25sp" />
+
+                        <TextView
+                            android:id="@+id/tv_jumlah"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="0"
+                            android:textColor="@color/white"
+                            android:textSize="25sp" />
+
+                        <Button
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:backgroundTint="@color/white"
+                            android:onClick="tambah"
+                            android:text="+"
+                            android:textColor="#499CC3"
+                            android:textSize="25sp" />
+
+                    </RelativeLayout>
 
                 </RelativeLayout>
 
-            </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-        </com.google.android.material.card.MaterialCardView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Total : "
+                android:textColor="@color/white"
+                android:textSize="20sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Total :"
-            android:textSize="20sp"/>
-        <TextView
-            android:id="@+id/total"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
-            android:textSize="20sp"/>
-        <Button
-            android:id="@+id/btn_checkOut"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/white"
-            android:backgroundTint="#E44E49"
-            android:text="Check Out" />
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/btn_checkOut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/white"
+                android:text="Check Out"
+                android:textColor="#499CC3" />
+
+        </LinearLayout>
     </RelativeLayout>
 </ScrollView>

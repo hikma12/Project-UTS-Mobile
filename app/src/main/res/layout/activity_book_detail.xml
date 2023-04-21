@@ -4,194 +4,220 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#DADADA"
     tools:context=".BookDetailActivity">
 
     <LinearLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/header"
         android:orientation="horizontal"
-        android:background="@color/teal_200">
+        android:padding="7dp">
+
         <ImageButton
             android:id="@+id/btn_back"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/baseline_arrow_back_24"
-            android:backgroundTint="#00000000"/>
+            android:backgroundTint="#00000000"
+            android:src="@drawable/baseline_arrow_back_24" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:textSize="15sp"
+            android:layout_marginLeft="7dp"
+            android:gravity="center_vertical"
             android:text="Detail"
-            android:gravity="center_vertical"/>
+            android:textColor="@color/white"
+            android:textSize="17sp" />
     </LinearLayout>
 
     <ImageView
         android:id="@+id/iv_buku"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_below="@id/header"/>
+        android:layout_width="190dp"
+        android:layout_height="250dp"
+        android:layout_below="@id/header"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="6dp" />
+
     <TextView
         android:id="@+id/tv_namaBuku"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/iv_buku"
-        android:textSize="20sp"/>
-    <TextView
-        android:id="@+id/tv_penulis"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_namaBuku"
-        android:textSize="15sp"/>
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_penulis"
-        android:text="Rp."
-        android:layout_toLeftOf="@id/tv_harga"
-        android:textAlignment="textEnd"
-        android:textSize="15sp"/>
+        android:layout_below="@id/header"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@id/iv_buku"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_penulis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_namaBuku"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@id/iv_buku"
+        android:textColor="#5B92CD"
+        android:textSize="15sp" />
+
     <TextView
         android:id="@+id/tv_harga"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_penulis"
-        android:text="hsghdg"
-        android:layout_alignParentEnd="true"
-        android:textAlignment="textEnd"
-        android:textSize="15sp"/>
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@id/tv_Rp"
+        android:text="200"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_Rp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_penulis"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/iv_buku"
+        android:text="Rp. "
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
     <TextView
         android:id="@+id/deskripsi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_harga"
+        android:layout_below="@id/iv_buku"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="10dp"
         android:text="Deskripsi"
-        android:textSize="15sp"/>
+        android:layout_marginBottom="3dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
     <TextView
         android:id="@+id/tv_deskripsi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/deskripsi"
-        android:textSize="15sp"/>
-    <TextView
-        android:id="@+id/detail"
-        android:layout_width="match_parent"
+        android:layout_marginHorizontal="15dp"
+        android:textSize="15sp" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_jumlahHalaman"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Detail Buku"
-        android:layout_below="@id/tv_deskripsi"
-        android:textSize="15sp"/>
-    <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_below="@id/tv_harga"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@id/iv_buku"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number of pages: "
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_jumlahHalaman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="645"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_penerbit"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/detail">
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/halaman"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:backgroundTint="@color/purple_200">
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-            <TextView
+        android:layout_below="@id/ll_jumlahHalaman"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@id/iv_buku"
+        android:orientation="horizontal">
 
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Jumlah Halaman"
-                android:textSize="15sp"/>
-            <TextView
-                android:id="@+id/tv_jumlahHalaman"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="645"
-                android:textSize="15sp"/>
-            </androidx.appcompat.widget.LinearLayoutCompat>
-        </com.google.android.material.card.MaterialCardView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Publisher: "
+            android:textColor="@color/black"
+            android:textSize="15sp" />
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/penerbit"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:backgroundTint="@color/purple_200"
-            android:layout_toRightOf="@id/halaman"
-            android:layout_marginLeft="10dp">
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Penerbit"
-                    android:textSize="15sp"/>
-                <TextView
-                    android:id="@+id/tv_penerbit"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Gramedia"
-                    android:textSize="15sp"/>
-            </androidx.appcompat.widget.LinearLayoutCompat>
-        </com.google.android.material.card.MaterialCardView>
+        <TextView
+            android:id="@+id/tv_penerbit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gramedia"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/tanggalTerbit"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:backgroundTint="@color/purple_200"
-            android:layout_below="@id/halaman"
-            android:layout_marginTop="10dp">
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Tanggal Terbit"
-                    android:textSize="15sp"/>
-                <TextView
-                    android:id="@+id/tv_tglTerbit"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="1 Januari 2022"
-                    android:textSize="15sp"/>
-            </androidx.appcompat.widget.LinearLayoutCompat>
-        </com.google.android.material.card.MaterialCardView>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_tanggalTerbit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_penerbit"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@id/iv_buku"
+        android:orientation="horizontal">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/isbn"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:backgroundTint="@color/purple_200"
-            android:layout_toRightOf="@id/tanggalTerbit"
-            android:layout_below="@id/penerbit"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp">
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="ISBN"
-                    android:textSize="15sp"/>
-                <TextView
-                    android:id="@+id/tv_isbn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="64736473878738"
-                    android:textSize="15sp"/>
-            </androidx.appcompat.widget.LinearLayoutCompat>
-        </com.google.android.material.card.MaterialCardView>
-    </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Publication Date: "
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_tglTerbit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2022"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_tanggalTerbit"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@id/iv_buku"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ISBN: "
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_isbn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="64736473878738"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <Button
         android:id="@+id/btn_order"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="Order"/>
-
+        android:layout_below="@id/tv_deskripsi"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#5B92CD"
+        android:text="Order" />
 
 </RelativeLayout>

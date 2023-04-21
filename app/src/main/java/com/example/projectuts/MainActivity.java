@@ -3,6 +3,7 @@ package com.example.projectuts;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseUser firebaseUser;
     private Button btnTopUp;
     private ImageView profile;
-
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -51,17 +51,15 @@ public class MainActivity extends AppCompatActivity {
             profile.setImageURI(Uri.parse(profileImage));
         }
 
-
         profile.setOnClickListener(view -> {
             Intent toProfile = new Intent(MainActivity.this, ProfileActivity.class);
             toProfile.putExtra("extra_foto", profileImage);
             startActivity(toProfile);
         });
 
-
         RecyclerView rvBuku = findViewById(R.id.rv_buku);
         rvBuku.setHasFixedSize(true);
-        rvBuku.setLayoutManager(new LinearLayoutManager(this));
+        rvBuku.setLayoutManager(new GridLayoutManager(this, 2));
         AdapterBuku adapter = new AdapterBuku(DataBuku.books);
         rvBuku.setAdapter(adapter);
 
@@ -77,13 +75,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-
-
-
-
-
-
     }
-
 
 }
