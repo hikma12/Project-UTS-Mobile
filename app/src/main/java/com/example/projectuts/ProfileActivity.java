@@ -41,9 +41,12 @@ public class ProfileActivity extends AppCompatActivity {
         nama.setText(firebaseUser.getDisplayName());
         email.setText(firebaseUser.getEmail());
 
+        String jmlh_saldo = getIntent().getStringExtra("extra_topup");
+
         back.setOnClickListener(view -> {
             Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
             intent.putExtra("extra_foto", profileUri);
+            intent.putExtra("extra_topup", jmlh_saldo);
             startActivity(intent);
 
         });
@@ -63,6 +66,7 @@ public class ProfileActivity extends AppCompatActivity {
             startActivity(new Intent(getApplicationContext(), LoginActivity.class));
             finish();
         });
+
     }
     ActivityResultLauncher<Intent> takeImage = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),

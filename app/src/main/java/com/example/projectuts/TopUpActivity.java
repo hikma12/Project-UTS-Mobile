@@ -35,14 +35,15 @@ public class TopUpActivity extends AppCompatActivity {
         });
 
         topUp.setOnClickListener(view -> {
-            String sldo = tv_saldo.getText().toString();
+            String balance = tv_saldo.getText().toString();
             String jumlahTopUp = et_jumlahTopup.getText().toString();
-            int saldo = Integer.parseInt(sldo);
-            int jumlah_saldo = Integer.parseInt(jumlahTopUp) + saldo;
+            int jumlah_saldo = Integer.parseInt(jumlahTopUp) + Integer.parseInt(balance);
+            String jumlah = String.valueOf(jumlah_saldo);
             Intent intent = new Intent(TopUpActivity.this, MainActivity.class);
-            intent.putExtra("extra_topup", jumlah_saldo);
+            intent.putExtra("extra_topup", jumlah);
             startActivity(intent);
         });
+
 
     }
 }
