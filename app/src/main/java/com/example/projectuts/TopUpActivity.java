@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class TopUpActivity extends AppCompatActivity {
@@ -14,6 +15,7 @@ public class TopUpActivity extends AppCompatActivity {
     private TextView tv_saldo;
     private EditText et_jumlahTopup;
     private Button topUp;
+    private ImageButton back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +24,15 @@ public class TopUpActivity extends AppCompatActivity {
         tv_saldo = findViewById(R.id.saldo);
         et_jumlahTopup = findViewById(R.id.et_jumlah_topup);
         topUp = findViewById(R.id.btn_topup);
+        back = findViewById(R.id.btn_back);
 
         String jumlahSaldo = getIntent().getStringExtra("extra_saldo");
 
         tv_saldo.setText(jumlahSaldo);
+
+        back.setOnClickListener(view -> {
+            finish();
+        });
 
         topUp.setOnClickListener(view -> {
             String sldo = tv_saldo.getText().toString();
