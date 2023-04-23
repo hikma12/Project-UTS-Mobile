@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -27,6 +26,7 @@ public class TopUpActivity extends AppCompatActivity {
         back = findViewById(R.id.btn_back);
 
         String jumlahSaldo = getIntent().getStringExtra("extra_saldo");
+        String profileImage = getIntent().getStringExtra("extra_foto");
 
         tv_saldo.setText(jumlahSaldo);
 
@@ -41,6 +41,7 @@ public class TopUpActivity extends AppCompatActivity {
             String jumlah = String.valueOf(jumlah_saldo);
             Intent intent = new Intent(TopUpActivity.this, MainActivity.class);
             intent.putExtra("extra_topup", jumlah);
+            intent.putExtra("extra_foto", profileImage);
             startActivity(intent);
         });
 

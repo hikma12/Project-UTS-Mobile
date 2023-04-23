@@ -339,14 +339,6 @@ public class DataBuku {
                 "\n" +
                 "Di pengujung kelas sebelas, kami \"diwajibkan\" mengikuti karyawisata keluar kota oleh sekolah. Ada beberapa pilihan karyawisata di sekolah kami. Ada yang hanya di sekitar kota, cukup mengendarai bus, perjalanan darat; ada yang jauh di kota lain, harus naik pesawat. Orangtua Seli mendaftarkan Seli mengikuti program mengunjungi tempat bersejarah ternama di luar kota. Mama Seli yang memiliki klinik dokter tidak kesulitan membayar program itu meski mahal. Ali juga ikut mendaftar program yang sama-keluarga Ali yang super kaya raya lebih tidak kesulitan membayarnya. Aku juga ikut bersama mereka, meski itu harus membobol tabunganku. Tidak mengapa, tabungan itu",
                 "https://cdn.gramedia.com/uploads/picture_meta/2023/4/10/yu4kvjos6yw2qru9skgsuf.jpg", "359", "SABAKGRIP", "9 April 2023", "9786239987800","99000"));
-//        books.add(new ModelBuku("", "", "", "", "", "", "", "",0));
-//        books.add(new ModelBuku("", "", "", "", "", "", "", "",0));
-//        books.add(new ModelBuku("", "", "", "", "", "", "", "",0));
-//        books.add(new ModelBuku("", "", "", "", "", "", "", "",0));
-//        books.add(new ModelBuku("", "", "", "", "", "", "", "",0));
-//        books.add(new ModelBuku("", "", "", "", "", "", "", "",0));
-//        books.add(new ModelBuku("", "", "", "", "", "", "", "",0));
-//        books.add(new ModelBuku("", "", "", "", "", "", "", "",0));
 
         return books;
     }
