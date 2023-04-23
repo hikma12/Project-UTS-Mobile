@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -37,6 +36,7 @@ public class BookDetailActivity extends AppCompatActivity {
         order = findViewById(R.id.btn_order);
 
         ModelBuku buku = getIntent().getParcelableExtra(EXTRA_BOOK);
+        String jumlahSaldo = getIntent().getStringExtra("extra_saldo");
 
         namaBuku.setText(buku.getNamaBuku());
         penulis.setText(buku.getPenulis());
@@ -56,12 +56,15 @@ public class BookDetailActivity extends AppCompatActivity {
             finish();
         });
 
+
         order.setOnClickListener(view -> {
             Intent intent = new Intent(BookDetailActivity.this, OrderActivity.class);
             intent.putExtra(OrderActivity. EXTRA_BOOK, buku);
+            intent.putExtra("extra_saldo", jumlahSaldo);
             startActivity(intent);
 
         });
+
 
     }
 }

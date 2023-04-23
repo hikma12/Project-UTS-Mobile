@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -26,6 +25,7 @@ public class ProfileActivity extends AppCompatActivity {
     private Uri uri;
     private Button btnLogout;
     private FirebaseUser firebaseUser;
+    private String jmlh_saldo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +41,12 @@ public class ProfileActivity extends AppCompatActivity {
         nama.setText(firebaseUser.getDisplayName());
         email.setText(firebaseUser.getEmail());
 
+        jmlh_saldo = getIntent().getStringExtra("extra_topup");
+
         back.setOnClickListener(view -> {
             Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
             intent.putExtra("extra_foto", profileUri);
+            intent.putExtra("extra_topup", jmlh_saldo);
             startActivity(intent);
 
         });
@@ -63,6 +66,7 @@ public class ProfileActivity extends AppCompatActivity {
             startActivity(new Intent(getApplicationContext(), LoginActivity.class));
             finish();
         });
+
     }
     ActivityResultLauncher<Intent> takeImage = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -74,4 +78,12 @@ public class ProfileActivity extends AppCompatActivity {
                 }
             }
     );
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+        intent.putExtra("extra_foto", profileUri);
+        intent.putExtra("extra_topup", jmlh_saldo);
+        startActivity(intent);
+    }
 }

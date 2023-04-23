@@ -1,19 +1,14 @@
 package com.example.projectuts;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -51,29 +46,41 @@ public class MainActivity extends AppCompatActivity {
             profile.setImageURI(Uri.parse(profileImage));
         }
 
+        String jmlh_saldo = getIntent().getStringExtra("extra_topup");
+        String balance = getIntent().getStringExtra("extra_balance");
+
         profile.setOnClickListener(view -> {
             Intent toProfile = new Intent(MainActivity.this, ProfileActivity.class);
             toProfile.putExtra("extra_foto", profileImage);
+            toProfile.putExtra("extra_topup", jmlh_saldo);
             startActivity(toProfile);
         });
+
+        if (jmlh_saldo != null){
+            tv_saldo.setText(jmlh_saldo);
+        }
+        if (balance != null){
+            tv_saldo.setText(balance);
+        }
+
+        String jumlah_saldo = tv_saldo.getText().toString();
 
         RecyclerView rvBuku = findViewById(R.id.rv_buku);
         rvBuku.setHasFixedSize(true);
         rvBuku.setLayoutManager(new GridLayoutManager(this, 2));
-        AdapterBuku adapter = new AdapterBuku(DataBuku.books);
+        AdapterBuku adapter = new AdapterBuku(DataBuku.books, jumlah_saldo);
         rvBuku.setAdapter(adapter);
 
-        String jumlahsaldo = getIntent().getStringExtra("extra_topup");
-        if (jumlahsaldo != null) {
 
-            tv_saldo.setText(jumlahsaldo);
-        }
         btnTopUp.setOnClickListener(view -> {
             String saldo = tv_saldo.getText().toString();
             Intent intent = new Intent(MainActivity.this, TopUpActivity.class);
             intent.putExtra("extra_saldo", saldo);
+            intent.putExtra("extra_foto", profileImage);
             startActivity(intent);
         });
+
+
 
     }
 

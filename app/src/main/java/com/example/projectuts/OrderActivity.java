@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -18,7 +19,7 @@ public class OrderActivity extends AppCompatActivity {
 
     public static final String EXTRA_BOOK = "extra_book";
     private ImageView foto;
-    private TextView namaBuku, harga, total, jumlah;
+    private TextView namaBuku, harga, total, jumlah, saldo;
     private Button checkOut;
     private ImageButton back;
     private  int count = 0;
@@ -35,6 +36,7 @@ public class OrderActivity extends AppCompatActivity {
         total = findViewById(R.id.total);
         checkOut = findViewById(R.id.btn_checkOut);
         back = findViewById(R.id.btn_back);
+        saldo = findViewById(R.id.saldo);
 
         ModelBuku buku = getIntent().getParcelableExtra(EXTRA_BOOK);
         Glide.with(OrderActivity.this)
@@ -44,15 +46,29 @@ public class OrderActivity extends AppCompatActivity {
                 .into(foto);
         namaBuku.setText(buku.getNamaBuku());
         harga.setText(buku.getHarga());
+        String jumlahSaldo = getIntent().getStringExtra("extra_saldo");
+        saldo.setText(jumlahSaldo);
+
+
+
 
         checkOut.setOnClickListener(view -> {
             if (jumlah.getText().toString().equals("0")){
                 Toast.makeText(this, "Silahkan tentukan jumlah terlebih dahulu", Toast.LENGTH_SHORT).show();
             }else {
-                Toast.makeText(this, "Pesanan anda sedang di proses", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(OrderActivity.this, MainActivity.class);
-                intent.putExtra(OrderActivity. EXTRA_BOOK, buku);
-                startActivity(intent);
+                String balance = saldo.getText().toString();
+                String totalPembayaran = total.getText().toString();
+                int jumlah_saldo = Integer.parseInt(balance) - Integer.parseInt(totalPembayaran);
+                String jumlah = String.valueOf(jumlah_saldo);
+                if (Integer.parseInt(totalPembayaran) > Integer.parseInt(balance) ){
+                    Toast.makeText(this, "Saldo anda tidak cukup", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(this, "Pesanan anda sedang di proses", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(OrderActivity.this, MainActivity.class);
+                    intent.putExtra(OrderActivity.EXTRA_BOOK, buku);
+                    intent.putExtra("extra_balance", jumlah);
+                    startActivity(intent);
+                }
             }
 
         });
@@ -60,6 +76,9 @@ public class OrderActivity extends AppCompatActivity {
         back.setOnClickListener(view -> {
             finish();
         });
+
+
+
 
     }
 

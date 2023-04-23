@@ -35,10 +35,10 @@
 
     <ImageView
         android:id="@+id/iv_buku"
-        android:layout_width="190dp"
+        android:layout_width="170dp"
         android:layout_height="250dp"
         android:layout_below="@id/header"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="15dp"
         android:layout_marginEnd="6dp" />
 
     <TextView
@@ -99,13 +99,22 @@
         android:textColor="@color/black"
         android:textSize="15sp" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/deskripsi"
+        android:layout_marginHorizontal="15dp"
+        android:layout_above="@id/btn_order">
+
     <TextView
         android:id="@+id/tv_deskripsi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/deskripsi"
-        android:layout_marginHorizontal="15dp"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:justificationMode="inter_word"
+        android:textColor="@color/black"/>
+    </ScrollView>
+
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/ll_jumlahHalaman"
@@ -122,7 +131,7 @@
             android:layout_height="wrap_content"
             android:text="Number of pages: "
             android:textColor="@color/black"
-            android:textSize="15sp" />
+            android:textSize="13sp" />
 
         <TextView
             android:id="@+id/tv_jumlahHalaman"
@@ -130,7 +139,7 @@
             android:layout_height="wrap_content"
             android:text="645"
             android:textColor="@color/black"
-            android:textSize="15sp" />
+            android:textSize="13sp" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -148,7 +157,7 @@
             android:layout_height="wrap_content"
             android:text="Publisher: "
             android:textColor="@color/black"
-            android:textSize="15sp" />
+            android:textSize="13sp" />
 
         <TextView
             android:id="@+id/tv_penerbit"
@@ -156,7 +165,7 @@
             android:layout_height="wrap_content"
             android:text="Gramedia"
             android:textColor="@color/black"
-            android:textSize="15sp" />
+            android:textSize="13sp" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -174,7 +183,7 @@
             android:layout_height="wrap_content"
             android:text="Publication Date: "
             android:textColor="@color/black"
-            android:textSize="15sp" />
+            android:textSize="13sp" />
 
         <TextView
             android:id="@+id/tv_tglTerbit"
@@ -182,7 +191,7 @@
             android:layout_height="wrap_content"
             android:text="2022"
             android:textColor="@color/black"
-            android:textSize="15sp" />
+            android:textSize="13sp" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -199,7 +208,7 @@
             android:layout_height="wrap_content"
             android:text="ISBN: "
             android:textColor="@color/black"
-            android:textSize="15sp" />
+            android:textSize="13sp" />
 
         <TextView
             android:id="@+id/tv_isbn"
@@ -207,16 +216,16 @@
             android:layout_height="wrap_content"
             android:text="64736473878738"
             android:textColor="@color/black"
-            android:textSize="15sp" />
+            android:textSize="13sp" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <Button
         android:id="@+id/btn_order"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_deskripsi"
         android:layout_marginHorizontal="15dp"
-        android:layout_marginTop="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginVertical="20dp"
         android:backgroundTint="#5B92CD"
         android:text="Order" />
 

@@ -1,5 +1,6 @@
 package com.example.projectuts;
 
+
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,9 +19,13 @@ import java.util.ArrayList;
 public class AdapterBuku extends RecyclerView.Adapter<AdapterBuku.ViewHolder> {
 
     private final ArrayList<ModelBuku> books;
-    public  AdapterBuku(ArrayList<ModelBuku> books){
+    private String jml_saldo;
+    public  AdapterBuku(ArrayList<ModelBuku> books, String jumlah_saldo){
         this.books = books;
+        jml_saldo = jumlah_saldo;
     }
+
+
     @NonNull
     @Override
     public AdapterBuku.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -34,12 +39,15 @@ public class AdapterBuku extends RecyclerView.Adapter<AdapterBuku.ViewHolder> {
 
         ModelBuku buku = books.get(position);
         holder.setData(buku);
+
         holder.itemView.setOnClickListener(view -> {
             Intent intent = new Intent(holder.itemView.getContext(), BookDetailActivity.class);
             intent.putExtra(BookDetailActivity.EXTRA_BOOK, buku);
+            intent.putExtra("extra_saldo", jml_saldo);
             holder.itemView.getContext().startActivity(intent);
         });
     }
+
 
     @Override
     public int getItemCount() {
@@ -67,7 +75,6 @@ public class AdapterBuku extends RecyclerView.Adapter<AdapterBuku.ViewHolder> {
             penulis.setText(buku.getPenulis());
             harga.setText(buku.getHarga());
         }
-
 
     }
 }

@@ -55,6 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Silahkan isi semua data", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
     private void register(String name, String email, String password){
