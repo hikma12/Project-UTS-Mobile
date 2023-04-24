@@ -20,9 +20,11 @@ public class AdapterBuku extends RecyclerView.Adapter<AdapterBuku.ViewHolder> {
 
     private final ArrayList<ModelBuku> books;
     private String jml_saldo;
-    public  AdapterBuku(ArrayList<ModelBuku> books, String jumlah_saldo){
+    private String fotoProfil;
+    public  AdapterBuku(ArrayList<ModelBuku> books, String jumlah_saldo, String profileImage){
         this.books = books;
         jml_saldo = jumlah_saldo;
+        fotoProfil = profileImage;
     }
 
 
@@ -44,6 +46,7 @@ public class AdapterBuku extends RecyclerView.Adapter<AdapterBuku.ViewHolder> {
             Intent intent = new Intent(holder.itemView.getContext(), BookDetailActivity.class);
             intent.putExtra(BookDetailActivity.EXTRA_BOOK, buku);
             intent.putExtra("extra_saldo", jml_saldo);
+            intent.putExtra("extra_foto", fotoProfil);
             holder.itemView.getContext().startActivity(intent);
         });
     }

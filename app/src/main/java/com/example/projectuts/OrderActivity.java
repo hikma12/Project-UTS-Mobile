@@ -49,8 +49,7 @@ public class OrderActivity extends AppCompatActivity {
         String jumlahSaldo = getIntent().getStringExtra("extra_saldo");
         saldo.setText(jumlahSaldo);
 
-
-
+        String profileImage = getIntent().getStringExtra("extra_foto");
 
         checkOut.setOnClickListener(view -> {
             if (jumlah.getText().toString().equals("0")){
@@ -66,6 +65,7 @@ public class OrderActivity extends AppCompatActivity {
                     Toast.makeText(this, "Pesanan anda sedang di proses", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(OrderActivity.this, MainActivity.class);
                     intent.putExtra(OrderActivity.EXTRA_BOOK, buku);
+                    intent.putExtra("extra_foto", profileImage);
                     intent.putExtra("extra_balance", jumlah);
                     startActivity(intent);
                 }
@@ -77,9 +77,6 @@ public class OrderActivity extends AppCompatActivity {
             finish();
         });
 
-
-
-
     }
 
     public void kurang(View view) {
@@ -90,7 +87,6 @@ public class OrderActivity extends AppCompatActivity {
             jumlah.setText("" + count);
             ModelBuku buku = getIntent().getParcelableExtra(EXTRA_BOOK);
             int sum = Integer.valueOf(jumlah.getText().toString());
-
             int harga = Integer.valueOf(buku.getHarga());
             total.setText(String.valueOf(sum * harga));
         }
@@ -101,7 +97,6 @@ public class OrderActivity extends AppCompatActivity {
         jumlah.setText(""+ count);
         ModelBuku buku = getIntent().getParcelableExtra(EXTRA_BOOK);
         int sum = Integer.valueOf(jumlah.getText().toString());
-
         int harga = Integer.valueOf(buku.getHarga());
         total.setText(String.valueOf(sum * harga));
 
