@@ -48,6 +48,12 @@ public class MainActivity extends AppCompatActivity {
 
         String jmlh_saldo = getIntent().getStringExtra("extra_topup");
         String balance = getIntent().getStringExtra("extra_balance");
+        if (jmlh_saldo != null){
+            tv_saldo.setText(jmlh_saldo);
+        }
+        if (balance != null){
+            tv_saldo.setText(balance);
+        }
 
         profile.setOnClickListener(view -> {
             Intent toProfile = new Intent(MainActivity.this, ProfileActivity.class);
@@ -56,19 +62,14 @@ public class MainActivity extends AppCompatActivity {
             startActivity(toProfile);
         });
 
-        if (jmlh_saldo != null){
-            tv_saldo.setText(jmlh_saldo);
-        }
-        if (balance != null){
-            tv_saldo.setText(balance);
-        }
+
 
         String jumlah_saldo = tv_saldo.getText().toString();
 
         RecyclerView rvBuku = findViewById(R.id.rv_buku);
         rvBuku.setHasFixedSize(true);
         rvBuku.setLayoutManager(new GridLayoutManager(this, 2));
-        AdapterBuku adapter = new AdapterBuku(DataBuku.books, jumlah_saldo);
+        AdapterBuku adapter = new AdapterBuku(DataBuku.books, jumlah_saldo, profileImage);
         rvBuku.setAdapter(adapter);
 
 

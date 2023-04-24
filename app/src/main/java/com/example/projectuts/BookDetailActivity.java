@@ -37,6 +37,7 @@ public class BookDetailActivity extends AppCompatActivity {
 
         ModelBuku buku = getIntent().getParcelableExtra(EXTRA_BOOK);
         String jumlahSaldo = getIntent().getStringExtra("extra_saldo");
+        String profileImage = getIntent().getStringExtra("extra_foto");
 
         namaBuku.setText(buku.getNamaBuku());
         penulis.setText(buku.getPenulis());
@@ -61,6 +62,7 @@ public class BookDetailActivity extends AppCompatActivity {
             Intent intent = new Intent(BookDetailActivity.this, OrderActivity.class);
             intent.putExtra(OrderActivity. EXTRA_BOOK, buku);
             intent.putExtra("extra_saldo", jumlahSaldo);
+            intent.putExtra("extra_foto", profileImage);
             startActivity(intent);
 
         });
